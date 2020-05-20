@@ -16,7 +16,7 @@ Dialog.show()
 def introduction():
     '''
     Hello there! To create formulas for tests
-    you have to go 230 line. Please keep track of
+    you have to go 205 line. Please keep track of
     data types. Then you will already ready to put answer
     in box, you have to change data type to STR.
     For example:
@@ -39,7 +39,7 @@ class control_the_programm():
         '''
         msg = QMessageBox()
         msg.setWindowTitle("Справка")
-        msg.setWindowIcon(QtGui.QIcon("ico/help (2).ico"))
+        msg.setWindowIcon(QtGui.QIcon("ico/help.ico"))
         msg.setText("Чтобы перейти к нужному заданию, нужно нажать на номер задания в верхней шапке. \n"
                     "После введите числа в правых столбиках и нажмите кнопку 'Получить ответ'. \n"
                     "\nЕсли все понятно, нажмите 'OK'.\n"
@@ -131,18 +131,9 @@ class control_the_programm():
                 c = ui.lineEdit_3.text()
                 d = ui.lineEdit_4.text()
                 e = ui.lineEdit_5.text()
-                a1 = len(a)
-                b1 = len(b)
-                c1 = len(c)
-                d1 = len(d)
-                e1 = len(e)
-                a = int(a)
-                b = int(b)
-                c = int(c)
-                d = int(d)
-                e = int(e)
-                if a1 * b1 * c1 * d1 * e1 == 0 or a * b * c * d * e == 0:
+                if (len(a)) or (len(a) * len(b) * len(c) * len(d) * len(e)) == 0:
                     easy_test.warning()
+                a, b, c, d, e = int(a), int(b), int(c), int(d), int(e)
             except ValueError:
                 easy_test.warning()
 
@@ -152,16 +143,9 @@ class control_the_programm():
                 b = ui.lineEdit.text()
                 c = ui.lineEdit_3.text()
                 d = ui.lineEdit_4.text()
-                a1 = len(a)
-                b1 = len(b)
-                c1 = len(c)
-                d1 = len(d)
-                a = int(a)
-                b = int(b)
-                c = int(c)
-                d = int(d)
-                if a1 * b1 * c1 * d1 == 0 or a * b * c * d == 0:
+                if len(a) * len(b) * len(c) * len(d) == 0:
                     easy_test.warning()
+                a, b, c, d = int(a), int(b), int(c), int(d)
             except ValueError:
                 easy_test.warning()
 
@@ -170,14 +154,9 @@ class control_the_programm():
                 a = ui.lineEdit_2.text()
                 b = ui.lineEdit.text()
                 c = ui.lineEdit_3.text()
-                a1 = len(a)
-                b1 = len(b)
-                c1 = len(c)
-                a = int(a)
-                b = int(b)
-                c = int(c)
-                if a1 * b1 * c1 == 0 or a * b * c == 0:
+                if len(a) * len(b) * len(c) == 0:
                     easy_test.warning()
+                a, b, c = int(a), int(b), int(c)
             except ValueError:
                 easy_test.warning()
 
@@ -185,22 +164,18 @@ class control_the_programm():
             try:
                 a = ui.lineEdit_2.text()
                 b = ui.lineEdit.text()
-                a1 = len(a)
-                b1 = len(b)
-                a = int(a)
-                b = int(b)
-                if a1 * b1 == 0 or a * b == 0:
+                if len(a) * len(b) == 0:
                     easy_test.warning()
+                a, b = int(a), int(b)
             except ValueError:
                 easy_test.warning()
 
         if test_lines == 1:
             try:
                 a = ui.lineEdit_2.text()
-                a1 = len(a)
-                a = int(a)
-                if a1 == 0 or a == 0:
+                if len(a) == 0:
                     easy_test.warning()
+                a = int(a)
             except ValueError:
                 easy_test.warning()
 
@@ -309,7 +284,6 @@ def bp5():
             easy_test.warning()
 
     ui.pushButton.clicked.connect(bp)
-
 
 # BUTTONS
 ui.pushButton_3.clicked.connect(bp1)
