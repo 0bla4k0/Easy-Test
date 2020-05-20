@@ -47,7 +47,7 @@ class control_the_programm():
         msg.setInformativeText("© 0bla4k0, 2020")
         msg.setDetailedText("Скопируйте и после перейдите по ссылке, чтобы ознакомиться"
                             " с работой программы и ее документацией: https://vk.com/oblachko6")
-        x = msg.exec()
+        msg.exec()
 
     def name_of_programm(self):
         '''
