@@ -2,7 +2,6 @@
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from gui import Ui_Dialog
-import form
 import sys
 
 # application
