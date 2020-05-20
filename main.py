@@ -2,6 +2,7 @@
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from gui import Ui_Dialog
+import form
 import sys
 
 # application
@@ -13,9 +14,30 @@ ui = Ui_Dialog()
 ui.setupUi(Dialog)
 Dialog.show()
 
+def introduction():
+    '''
+    Hello there! To create formulas for tests
+    you have to go 230 line. Please keep track of
+    data types. Then you will already ready to put answer
+    in box, you have to change data type to STR.
+    For example:
+    ui.textEdit.setText(str(int(a+b)) + " this answer " + " :^) ")
+    '''
+
+
+
 class control_the_programm():
+    '''
+    To avoid errors, don't change
+    the structure of the programme.
+    '''
 
     def message_box(self):
+        '''
+        This function creates a message box
+        which tells you about documentation
+        to this program and how to use it.
+        '''
         msg = QMessageBox()
         msg.setWindowTitle("Справка")
         msg.setWindowIcon(QtGui.QIcon("ico/help (2).ico"))
@@ -29,14 +51,22 @@ class control_the_programm():
         x = msg.exec()
 
     def name_of_programm(self):
+        '''
+        This function creates a name for
+        the program that is at the top.
+        It reads the name from the TXT file,
+        which created in folder called "txt".
+        '''
         name = open("txt/test_name.txt", 'r', encoding='utf-8')
         name_line = name.readline()
         ui.textEdit_2.setText(name_line)
 
-        test_lines = 0
-
     def clear_lines(self):
-        ui.lineEdit_2.clear()  # cleaning lines for the next task
+        '''
+        This function clears all boxes
+        from previous task.
+        '''
+        ui.lineEdit_2.clear()
         ui.lineEdit.clear()
         ui.textEdit.clear()
         ui.lineEdit_3.clear()
@@ -49,6 +79,13 @@ class control_the_programm():
         ui.textEdit_8.clear()
 
     def creat_conditions(self, x, task1_array):
+        '''
+        This function helps the next function
+        creates number of variables based on the
+        number of conditions.
+        Also, it pastes conditions from txt file
+        in boxes.
+        '''
         if x == 5:
             ui.textEdit_4.setText(task1_array[0])
             ui.textEdit_5.setText(task1_array[1])
@@ -73,10 +110,20 @@ class control_the_programm():
         test_lines = len(task1_array)
 
     def warning(self):
+        '''
+        If something go wrong, programme will
+        tell you about it.
+        '''
         ui.textEdit.setText("\n                                             Введите цифры!")
         pass
 
     def take_numbers_from_boxes(self):
+        '''
+        This function creates number of
+        variables to create formulas in the future.
+        For example, if you 5 conditions in the test,
+        the programme will create 5 variables.
+        '''
         global a, b, c, d, e
         if test_lines == 5:
             try:
@@ -159,6 +206,13 @@ class control_the_programm():
                 easy_test.warning()
 
     def txt_tasks(self, y):
+        '''
+        This functions takes number of the task from button,
+        then this number go here, open certain txt file, puts
+        conditions in the list from each line. After that,
+        variable x counts how many conditions, then this x
+        goes in "def create_conditions".
+        '''
         easy_test.clear_lines()
         task1_array = []
         z = "txt/task" + str(y) + ".txt"
@@ -180,7 +234,7 @@ def bp1():
     def bp():
         easy_test.take_numbers_from_boxes()
         try:
-            formula = 0
+            formula = None
             ui.textEdit.setText(str(formula))
         except ValueError:
             easy_test.warning()
@@ -197,7 +251,7 @@ def bp2():
     def bp():
         easy_test.take_numbers_from_boxes()
         try:
-            formula = 0                            #
+            formula =  None
             ui.textEdit.setText(str(formula))
         except ValueError:
             easy_test.warning()
@@ -214,9 +268,9 @@ def bp3():
     def bp():
         easy_test.take_numbers_from_boxes()
         try:
-            formula = 0                            #
+            formula = None
             ui.textEdit.setText(str(formula))
-        except ValueError:
+        except  ValueError:
             easy_test.warning()
         except TypeError:
             easy_test.warning()
@@ -231,7 +285,7 @@ def bp4():
     def bp():
         easy_test.take_numbers_from_boxes()
         try:
-            formula = 0                           #
+            formula = None
             ui.textEdit.setText(str(formula))
         except ValueError:
             easy_test.warning()
@@ -248,7 +302,7 @@ def bp5():
     def bp():
         easy_test.take_numbers_from_boxes()
         try:
-            formula = 0                            #
+            formula = None
             ui.textEdit.setText(str(formula))
         except ValueError:
             easy_test.warning()
