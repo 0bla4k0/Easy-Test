@@ -46,7 +46,7 @@ class control_the_programm():
                     "\nЕсли вы хотите делать свои тесты в этой программе, нажмите 'Show Details'.")
         msg.setInformativeText("© 0bla4k0, 2020")
         msg.setDetailedText("Скопируйте и после перейдите по ссылке, чтобы ознакомиться"
-                            " с работой программы и ее документацией: https://vk.com/oblachko6")
+                            " с работой программы и ее документацией: https://vk.com/@oblachko6-easy-test")
         msg.exec()
 
     def name_of_programm(self):
